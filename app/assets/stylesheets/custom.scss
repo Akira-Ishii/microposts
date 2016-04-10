@@ -105,3 +105,17 @@ input {
     color: $state-danger-text;
   }
 }
+
+
+.dl-horizontal dt {
+  width: 50%;
+  padding-right: 0.5em;
+  text-align: right;
+}
+
+.dl-horizontal dd {
+  width: 50%;
+  margin-left: 50%;
+  padding-left: 0.5em;
+  text-align: left;
+}
