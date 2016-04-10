@@ -3,18 +3,19 @@
   <%= @user.name %>
 </h1>
 <h2>user_profile</h2>
-<div align="center">
+       <div align="center"> 
        <dl class="dl-horizontal">
           <dt>Name</dt>
-          <dd><%= @user.name %></dd>
+          <dd><%= @user.name %></dd><br />
           <dt>email</dt>
-          <dd><%= @user.email %></dd>
+          <dd><%= @user.email %></dd><br />
           <dt>age</dt>
-          <dd><%= @user.age %></dd>
+          <dd><%= @user.age %></dd><br />
           <dt>area</dt>
-          <dd><%= @user.area %></dd>
+          <dd><%= @user.area %></dd><br />
           <dt>description</dt>
-          <dd><%= @user.body %></dd>
+          <dd><%= @user.body %></dd><br />
         </dl>
+
         <%= link_to "edit", edit_user_path, class:"btn btn-info" %>
 </div>

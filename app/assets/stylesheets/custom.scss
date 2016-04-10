@@ -106,16 +106,18 @@ input {
   }
 }
 
-
 .dl-horizontal dt {
   width: 50%;
   padding-right: 0.5em;
-  text-align: right;
+  padding-left: 0.5em;
 }
 
+@media (min-width: 768px) {
 .dl-horizontal dd {
-  width: 50%;
-  margin-left: 50%;
+  margin-left: 0;
   padding-left: 0.5em;
+  padding-right: 0.5em;
   text-align: left;
 }
+}
+
