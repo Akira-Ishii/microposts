@@ -1,13 +1,11 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    
-<%= link_to "Microposts", root_path, id: "logo" %>
-
+    <%= link_to "Microposts", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li>
-<%= link_to "Home", root_path %>
-</li>
+          <%= link_to "Home", root_path %>
+        </li>
         <li>
 <%= link_to "Help", '#' %>
 </li>
@@ -26,7 +24,8 @@
 <%= link_to "Profile", current_user %>
 </li>
               <li>
-<%= link_to "Settings", '#' %>
+                
+<%= link_to "Settings", :controller => "users", :action => "edit" %>
 </li>
               <li class="divider"></li>
               <li>

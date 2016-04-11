@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  validates :age, numericality: { greater_than_or_equal_to: 0 }
+  validates :area, length: { maximum: 20 }
+  validates :body, length: { maximum: 100 } 
   has_secure_password
   has_many :microposts
   has_many :following_relationships, class_name:  "Relationship",

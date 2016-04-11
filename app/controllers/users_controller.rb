@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
+ 
   def show
    @user = User.find(params[:id])
    @microposts = @user.microposts.order(created_at: :desc)
   end
-  
+
   def new
     @user = User.new
   end
-  
+
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -17,6 +19,8 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+  before_action :authenticate_user, only: [:edit, :update]
   
   def edit
     @user = User.find(params[:id])
@@ -24,11 +28,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      redirect_to @user
-    else
-      render 'edit'
-    end    
+      if @user.update_attributes(user_params)
+        redirect_to @user
+      else
+        render 'edit'
+      end
   end
 
   private
@@ -37,4 +41,14 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation, :body, :age, :area)
   end  
+
+  def authenticate_user
+    @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to login_path
+    end
+  end
+
+
+
 end
