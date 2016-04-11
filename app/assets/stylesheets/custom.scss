@@ -68,6 +68,32 @@ p {
   text-decoration: none;
 }
 
+.label-default {
+    padding: 0.07em 0.5em 0.15em;
+    background-color: #aaa;
+}
+
+.profile {
+  font-size: 0.8em;
+}
+
+
+div[name="profile"] {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-size: 0.8em;
+  vertical-align :baseline;
+}
+
+section span {
+    margin-right: 5px;
+}
+
+#profile-area {
+  margin-left: 10px;
+}
+
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;

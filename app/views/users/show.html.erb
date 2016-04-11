@@ -4,6 +4,9 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
+        <div name="profile"><span class="label label-default">email</span><%= @user.email %></div>
+        <div name="profile"><span class="label label-default">age</span><%= @user.age %><span id="profile-area" class="label label-default">area</span><%= @user.area %></div>
+        <div name="profile"><span class="label label-default">comment</span><%= @user.body %></span></div>
       </h1>
     </section>
   </aside>
