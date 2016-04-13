@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   def show
    @user = User.find(params[:id])
    @microposts = @user.microposts.order(created_at: :desc)
+   @following_users = @user.following_users.all
+   @follower_users = @user.follower_users.all
+   
   end
 
   def new
@@ -33,6 +36,20 @@ class UsersController < ApplicationController
       else
         render 'edit'
       end
+  end
+  
+  def followings
+   @user = User.find(params[:id])
+   @microposts = @user.microposts.order(created_at: :desc)
+   @following_users = @user.following_users.all
+   @follower_users = @user.follower_users.all
+  end
+  
+  def followers
+   @user = User.find(params[:id])
+   @microposts = @user.microposts.order(created_at: :desc)
+   @following_users = @user.following_users.all
+   @follower_users = @user.follower_users.all
   end
 
   private

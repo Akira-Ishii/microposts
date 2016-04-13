@@ -12,20 +12,23 @@
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
+    
     <div class="changes">
       <%= link_to "microposts", @user,{ class: "btn btn-default"} %>
       <%= link_to "followings", followings_path(@user),{ class: "btn btn-default"} %>
       <%= link_to "followers", followers_path(@user),{ class: "btn btn-default"} %>
     </div>
     
-    <% if @user.microposts.any? %>
-      <h3>Microposts (
-      <%= @user.microposts.count %>
+    <% if @user.follower_users.any? %>
+      <h3>Followed (
+      <%= @user.follower_users.count %>
         )
       </h3>
-      <ol class="microposts">
-        <%= render @microposts %>
+      <ol class="follower_users">
+        <% @follower_users.each do |follower_user| %>
+          <%= render partial: 'follower_users/follower_user', locals: { follower_user: follower_user } %>
+        <% end %>
       </ol>
-    <% end %>
+    <% end %> 
   </div>
 </div>
