@@ -5,6 +5,32 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var textareaCountMax = 140;
+     
+        $('textarea').bind('keydown keyup keypress change',function(){
+            var thisValueLength = $(this).val().length;
+            var countDown = (textareaCountMax)-(thisValueLength);
+            $('.count_textarea').html(countDown);
+     
+            if(countDown < 0){
+                $('.count_textarea').css({color:'#ff0000',fontWeight:'bold'});
+                $('textarea').css({background:'#ffcccc'});
+            } else {
+                $('.count_textarea').css({color:'#000000',fontWeight:'normal'});
+                $('textarea').css({background:'#ffffff'});
+            }
+        });
+     
+        $(window).load(function(){
+            $('.count_textarea').html(textareaCountMax);
+        });
+    });
+    </script>
+    
   </head>
   <body>
     <%= render 'layouts/header' %>
