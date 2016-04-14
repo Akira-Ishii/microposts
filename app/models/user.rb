@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :age, numericality: { greater_than_or_equal_to: 0 }
-  validates :area, length: { maximum: 20 }
-  validates :body, length: { maximum: 100 } 
+  validates :age, numericality: { greater_than_or_equal_to: 0 }, on: :update
+  validates :area, length: { maximum: 20 }, on: :update
+  validates :body, length: { maximum: 100 } , on: :update
   has_secure_password
   has_many :microposts
   has_many :following_relationships, class_name:  "Relationship",
@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
   has_many :follower_users, through: :follower_relationships, source: :follower
 
   def follow(other_user)
-    following_relationships.find_or_create_by(followed_id: other_user.id)
   end
 
   def unfollow(other_user)
