@@ -1,5 +1,10 @@
+<div>
 <% if @feed_items.any? %>
-  <ol class="microposts">
-    <%= render @feed_items %>
-  </ol>
+    <ol class="microposts">
+      <%= render @feed_items %>
+      <%= paginate @feed_items %>
+    </ol>
+    
+      
 <% end %>
+</div>
